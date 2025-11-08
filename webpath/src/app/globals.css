@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Reset and fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f0f4f8;
+  color: #1e293b;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  margin: auto;
+}
+
+.main {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.intro-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #3b2db8;
+}
+
+h2 {
+  text-align: center;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  color: #334155;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.deploy-btn, .docs-btn {
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.deploy-btn {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.deploy-btn:hover {
+  background-color: #2563eb;
+}
+
+.docs-btn {
+  border: 2px solid #3b82f6;
+  color: #3b82f6;
+}
+
+.docs-btn:hover {
+  background-color: #e0e7ff;
+  color: #1e3a8a;
+}
+
+/* Projects Section */
+.projects-section {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.projects-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #3b2db8;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: linear-gradient(135deg, #a855f7, #3b82f6);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Intro with logo on left, text on right */
+.intro-container {
+  display: flex;
+  flex-direction: column; /* stacked on mobile */
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.intro-container .intro-text {
+  text-align: center;
+}
+
+/* For larger screens, place logo left and text right */
+@media (min-width: 640px) {
+  .intro-container {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+
+  .intro-container .intro-text {
+    text-align: left;
+  }
+}
