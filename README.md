@@ -9,13 +9,14 @@ Empowering developers, designers, and learners to collaborate on real-world web 
 
 ## 🧩 Tech Stack
 
-Layer	Technology	Notes
-Frontend	Next.js (React + TypeScript)	Handles UI and pages
-Backend	Next.js API Routes (Node.js)	Serverless backend inside /api
-Database	MongoDB Atlas	Free cluster for storing projects/data
-Design	Figma (Free Plan)	Figma
-Styling	CSS Modules / Sass	Optional Tailwind fallback
-Version Control	GitHub	Free public repositories
+| Layer          | Technology                   | Notes                                    |
+|----------------|------------------------------|-----------------------------------------|
+| Frontend       | Next.js (React + TypeScript) | Handles UI and pages                     |
+| Backend        | Next.js API Routes (Node.js) | Serverless backend inside /api          |
+| Database       | MongoDB Atlas                | Free cluster for storing projects/data  |
+| Design         | Figma (Free Plan)            | UI/UX design                             |
+| Styling        | CSS Modules / Sass           | Optional Tailwind fallback               |
+| Version Control| GitHub                       | Free public repositories                 |
 
 ## 💡 Example Mini Projects
 	•	🧾 TaskBoard – Trello-style task management tool
