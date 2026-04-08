@@ -1,73 +1,132 @@
-## 🌐 WebPath by SJA Pathway
+# WebPath by SJA Pathway
 
-WebPath is an open-source initiative by SJA Pathway focused on creating a collection of web projects — from simple tools to full-stack applications — under one collaborative platform.  
-Anyone can contribute, learn, and grow through hands-on development experience.
+An open-source, community-driven interactive roadmap for learning web development. Pick a path, learn at your own pace, and contribute along the way.
 
-## 🚀 Vision
+## Vision
 
-Empowering developers, designers, and learners to collaborate on real-world web applications — freely, creatively, and without limits.
+Empowering developers and learners to master web development through structured, community-maintained learning paths — freely, collaboratively, and without limits.
 
-## 🧩 Tech Stack
+## Tech Stack
 
-| Layer           | Technology                   | Notes                                           |
-|-----------------|------------------------------|------------------------------------------------|
-| Frontend        | Next.js (React + TypeScript) | Handles UI and pages                            |
-| Backend         | Next.js API Routes (Node.js) | Serverless backend inside `src/app/api`        |
-| Database        | MongoDB Atlas                | Free cluster for storing projects/data         |
-| Design          | Figma (Free Plan)            | UI/UX design                                   |
-| Styling         | CSS Modules / Sass           | Optional Tailwind fallback                      |
-| Version Control | GitHub                       | Free public repositories                        |
+| Layer           | Technology                   |
+|-----------------|------------------------------|
+| Frontend        | Next.js 16 (React 19 + TypeScript) |
+| Backend         | Next.js API Routes (Node.js) |
+| Database        | MongoDB Atlas (Mongoose)     |
+| Styling         | Tailwind CSS 4               |
+| Version Control | Git + GitHub                 |
 
-## 💡 Example Mini Projects
-- 🧾 **TaskBoard** – Trello-style task management tool  
-- 📰 **BlogSphere** – Multi-user blogging platform  
-- 💬 **ChatNest** – Real-time chat app (Socket.io via API routes)  
-- 🧠 **QuizHub** – Interactive quiz app  
-- 💼 **Portfolio Builder** – No-code personal site creator  
+## Project Structure
 
-Each project can live under `src/app/projects/<project-name>` within the same Next.js monorepo.
+```
+src/
+├── app/
+│   ├── page.tsx                        # Landing page
+│   ├── layout.tsx                      # Root layout (Navbar + Footer)
+│   ├── paths/
+│   │   ├── page.tsx                    # All paths listing
+│   │   └── [pathSlug]/
+│   │       ├── page.tsx                # Path detail with topic list
+│   │       └── [topicSlug]/
+│   │           └── page.tsx            # Topic detail with content & resources
+│   ├── contribute/
+│   │   └── page.tsx                    # Contribution guide
+│   └── api/
+│       └── test/route.ts              # Test API endpoint
+├── components/
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── PathCard.tsx
+│   └── TopicCard.tsx
+└── data/
+    ├── index.ts                        # Data access helpers
+    ├── types.ts                        # TypeScript interfaces
+    └── paths/
+        ├── frontend.json               # Frontend path & topics
+        ├── backend.json                # Backend path & topics
+        └── fullstack.json              # Full Stack path & topics
+```
 
-## 🛠️ Getting Started
-1. **Fork** this repository.  
+## Learning Paths
+
+- **Frontend Development** — HTML, CSS, JavaScript, React, Next.js
+- **Backend Development** — Node.js, REST APIs, Databases, Authentication
+- **Full Stack Development** — Full Stack Overview, Deployment, Git & Collaboration
+
+Each path contains multiple topics with explanations, code examples, and curated resources.
+
+## Getting Started
+
+1. **Fork** this repository.
 2. **Clone** your fork:
 
 ```bash
-git clone https://github.com/yourusername/webpath.git
-cd webpath
+git clone https://github.com/YOUR_USERNAME/WebPath.git
+cd WebPath
 ```
 
-3.	Install dependencies:
+3. Install dependencies:
+
 ```bash
 npm install
 ```
 
-4.	Run locally:
+4. Run locally:
+
 ```bash
 npm run dev
 ```
 
-5.	Create your feature branch and start building!
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🧠 Contribution Guidelines
-	•	🌱 Beginners with some experience are welcome.
-	•	🧩 New projects require a short proposal under issues/.
-	•	💬 Communicate via Discord or GitHub discussions.
-	•	🔍 All code must follow ESLint + Prettier formatting.
-	•	📝 Use src/app/api for backend logic and src/app/projects for frontend project pages.
+## How to Contribute
 
-## ☁️ Deployment (Full-Stack on Vercel)
-	•	Push to main → Vercel automatically deploys the frontend + backend.
-	•	API routes inside src/app/api are deployed as serverless functions.
-	•	Set environment variables (e.g., MONGO_URI) in the Vercel dashboard.
-	•	No separate backend hosting required.
+Contributions are endless — here's how you can help:
 
-## 📈 Roadmap
-	•	Add authentication & dashboard template
-	•	Create UI components library
-	•	Enable user submissions for project ideas
-	•	Launch public contributor leaderboard
+### Add a Topic
 
-## ✅ Key Updates:
-1. Backend location is explicitly noted: `src/app/api`.  
-2. Frontend projects path updated: `src/app/projects/<project-name>`.  
-3. Notes on deployment clarify **full-stack Vercel** setup.  
+Add a new topic object to any path JSON file in `src/data/paths/`:
+
+```json
+{
+  "slug": "typescript-basics",
+  "title": "TypeScript Basics",
+  "description": "Add static typing to JavaScript.",
+  "level": "intermediate",
+  "order": 6,
+  "content": "Your content here with ## headings and ```code blocks```",
+  "resources": [
+    { "title": "TypeScript Docs", "url": "https://www.typescriptlang.org/docs/", "type": "docs" }
+  ]
+}
+```
+
+### Add a New Path
+
+1. Create a new JSON file in `src/data/paths/` (e.g., `devops.json`)
+2. Import it in `src/data/index.ts`
+
+### Other Ways to Contribute
+
+- Add curated resources to existing topics
+- Fix typos or improve explanations
+- Translate content
+- Add code examples
+- Improve UI/UX
+
+## Guidelines
+
+- Keep explanations clear and beginner-friendly
+- Include working code examples
+- Link to official documentation as primary resources
+- Use correct `level`: beginner, intermediate, or advanced
+- Test locally before submitting a PR
+
+## Deployment
+
+- Push to main → Vercel auto-deploys frontend + API routes
+- Set environment variables (e.g., `MONGODB_URI`) in the Vercel dashboard
+
+## License
+
+Open Source by [SJA Pathway](https://github.com/SJA-Pathway)
