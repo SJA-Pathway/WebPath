@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/paths/layout,_N_T_/paths/[pathSlug]/layout,_N_T_/paths/[pathSlug]/[topicSlug]/layout,_N_T_/paths/[pathSlug]/[topicSlug]/page,_N_T_/paths/frontend/javascript-essentials"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/paths/$d$pathSlug/$d$topicSlug/__PAGE__",
+    "/paths/$d$pathSlug/$d$topicSlug",
+    "/paths/$d$pathSlug",
+    "/paths",
+    "/_index"
+  ]
+}
