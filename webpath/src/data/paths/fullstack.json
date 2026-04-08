@@ -1,0 +1,45 @@
+{
+  "slug": "fullstack",
+  "title": "Full Stack Development",
+  "description": "Connect the dots between frontend and backend to build complete web applications.",
+  "icon": "layers",
+  "color": "#8B5CF6",
+  "topics": [
+    {
+      "slug": "fullstack-overview",
+      "title": "Full Stack Overview",
+      "description": "Understand how frontend and backend work together in a modern web application.",
+      "level": "beginner",
+      "order": 1,
+      "content": "Full stack development means working across the entire web application — from the UI to the server to the database.\n\n## Key Concepts\n\n- **Client-Server Model**: The browser (client) makes requests; the server responds with data or HTML.\n- **API Layer**: The bridge between frontend and backend, typically REST or GraphQL.\n- **Frontend**: What the user sees — HTML, CSS, JavaScript, React/Next.js.\n- **Backend**: Server logic, authentication, database operations.\n- **DevOps**: Deployment, CI/CD, monitoring, and infrastructure.\n\n## The Modern Stack\n\n```\nUser → Browser → Next.js (Frontend)\n                    ↓\n              API Routes (Backend)\n                    ↓\n              Database (MongoDB/PostgreSQL)\n```",
+      "resources": [
+        { "title": "Roadmap.sh: Full Stack", "url": "https://roadmap.sh/full-stack", "type": "article" },
+        { "title": "The Odin Project", "url": "https://www.theodinproject.com/", "type": "tutorial" }
+      ]
+    },
+    {
+      "slug": "deployment",
+      "title": "Deployment & DevOps",
+      "description": "Ship your applications to production with modern deployment tools.",
+      "level": "intermediate",
+      "order": 2,
+      "content": "Deployment is the process of making your application available to users on the internet.\n\n## Key Concepts\n\n- **Vercel**: One-click deployment for Next.js applications.\n- **Environment Variables**: Store secrets and config outside your codebase.\n- **CI/CD**: Automate testing and deployment with GitHub Actions.\n- **Docker**: Containerize your app for consistent environments.\n- **Domains & DNS**: Point a custom domain to your deployed application.\n\n## Example: Vercel Deployment\n\n```bash\n# Install Vercel CLI\nnpm i -g vercel\n\n# Deploy\nvercel\n\n# Set environment variables\nvercel env add MONGODB_URI\n```",
+      "resources": [
+        { "title": "Vercel Documentation", "url": "https://vercel.com/docs", "type": "docs" },
+        { "title": "GitHub Actions Docs", "url": "https://docs.github.com/en/actions", "type": "docs" }
+      ]
+    },
+    {
+      "slug": "git-collaboration",
+      "title": "Git & Collaboration",
+      "description": "Work effectively with teams using Git, GitHub, and open source workflows.",
+      "level": "beginner",
+      "order": 3,
+      "content": "Git is the version control system that powers modern software collaboration.\n\n## Key Concepts\n\n- **Repositories**: A project folder tracked by Git.\n- **Branches**: Work on features in isolation, then merge into main.\n- **Commits**: Snapshots of your code at a point in time.\n- **Pull Requests**: Propose changes and get code reviews before merging.\n- **Merge Conflicts**: When two branches change the same lines — resolve manually.\n\n## Common Workflow\n\n```bash\n# Create a feature branch\ngit checkout -b feature/add-navbar\n\n# Make changes and commit\ngit add src/components/Navbar.tsx\ngit commit -m \"Add responsive navbar component\"\n\n# Push and create PR\ngit push origin feature/add-navbar\ngh pr create --title \"Add navbar\" --body \"Adds responsive navigation\"\n```",
+      "resources": [
+        { "title": "Git Handbook", "url": "https://guides.github.com/introduction/git-handbook/", "type": "docs" },
+        { "title": "GitHub Flow Guide", "url": "https://docs.github.com/en/get-started/quickstart/github-flow", "type": "article" }
+      ]
+    }
+  ]
+}
