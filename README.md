@@ -1,82 +1,68 @@
 # WebPath by SJA Pathway
 
-<p align="center">
-    <img src="/assets/SJAlogo.png" alt="SJA Logo" width="400">
-</p>
+An open-source, community-driven interactive roadmap for learning web development. Pick a path, learn at your own pace, and contribute along the way.
 
-<div align="center">
-
----
-
-WebPath is a open-source platform, that provides a **community-driven interactive roadmap** for learning web development. Pick a path, learn at your own pace, and contribute your own educational content along the way to improve the platform for others.
-
----
-
-**Production**: [webpath.sjapathway.com](https://webpath.sjapathway.com)
-**Development**: [dev.webpath.sjapathway.com](https://dev.webpath.sjapathway.com)
-
-</div>
+- **Production**: [webpath.sjapathway.com](https://webpath.sjapathway.com)
+- **Development**: [dev.webpath.sjapathway.com](https://dev.webpath.sjapathway.com)
+- **Project Board**: [SJA-Pathway/projects/1](https://github.com/orgs/SJA-Pathway/projects/1/views/1)
 
 ## Vision
 
 Empowering developers and learners to master web development through structured, community-maintained learning paths — freely, collaboratively, and without limits.
 
-## Features
-
-- Structured learning paths (Frontend, Backend, and Fullstack)
-- Topic based content system
-- Code examples and curated resources
-- Community-driven contributions
-- Scalable Architecture
-
-<div align="center">
-
 ## Tech Stack
 
-| Layer           | Technology                   |
-|-----------------|------------------------------|
-| Frontend        | Next.js 16 (React 19 + TypeScript) |
-| Backend         | Next.js API Routes (Node.js) |
-| Database        | MongoDB Atlas (Mongoose)     |
-| Styling         | Tailwind CSS 4               |
-| Version Control | Git + GitHub                 |
-
-<br>
-
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=react,ts,nextjs,mongodb,tailwind,git,github&perline=9" alt="Tech Stack Icons"/>
-  </a>
-</div>
+| Layer            | Technology                              |
+|------------------|-----------------------------------------|
+| Framework        | Next.js 16 (App Router, Webpack)        |
+| Language         | TypeScript 5                            |
+| UI               | React 19 + React Compiler               |
+| Styling          | Tailwind CSS 4                          |
+| Data (current)   | Static JSON in `src/data/paths/`        |
+| Data (planned)   | MongoDB Atlas via Mongoose 8            |
+| HTTP             | Axios                                   |
+| Hosting          | Vercel (production + dev environments)  |
+| Linting          | ESLint 9 (`eslint-config-next`)         |
+| Version Control  | Git + GitHub                            |
 
 ## Project Structure
 
 ```
-src/
-├── app/
-│   ├── page.tsx                        # Landing page
-│   ├── layout.tsx                      # Root layout (Navbar + Footer)
-│   ├── paths/
-│   │   ├── page.tsx                    # All paths listing
-│   │   └── [pathSlug]/
-│   │       ├── page.tsx                # Path detail with topic list
-│   │       └── [topicSlug]/
-│   │           └── page.tsx            # Topic detail with content & resources
-│   ├── contribute/
-│   │   └── page.tsx                    # Contribution guide
-│   └── api/
-│       └── test/route.ts              # Test API endpoint
-├── components/
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── PathCard.tsx
-│   └── TopicCard.tsx
-└── data/
-    ├── index.ts                        # Data access helpers
-    ├── types.ts                        # TypeScript interfaces
-    └── paths/
-        ├── frontend.json               # Frontend path & topics
-        ├── backend.json                # Backend path & topics
-        └── fullstack.json              # Full Stack path & topics
+WebPath/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx                  # Root layout (Navbar + Footer)
+│   │   ├── page.tsx                    # Landing page
+│   │   ├── globals.css                 # Tailwind + global styles
+│   │   ├── icon.png                    # Favicon
+│   │   ├── api/
+│   │   │   └── test/route.ts           # Sample API route
+│   │   ├── contribute/
+│   │   │   └── page.tsx                # Contribution guide
+│   │   └── paths/
+│   │       ├── page.tsx                # All paths listing
+│   │       └── [pathSlug]/
+│   │           ├── page.tsx            # Path detail (topic list)
+│   │           └── [topicSlug]/
+│   │               └── page.tsx        # Topic detail (content + resources)
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   ├── PathCard.tsx
+│   │   └── TopicCard.tsx
+│   └── data/
+│       ├── index.ts                    # `getPath` / `getTopic` helpers
+│       ├── types.ts                    # Path / Topic / Resource interfaces
+│       └── paths/
+│           ├── frontend.json
+│           ├── backend.json
+│           └── fullstack.json
+├── public/                             # Static assets
+├── next.config.ts
+├── tsconfig.json
+├── eslint.config.mjs
+├── postcss.config.mjs
+└── package.json
 ```
 
 ## Learning Paths
@@ -85,9 +71,16 @@ src/
 - **Backend Development** — Node.js, REST APIs, Databases, Authentication
 - **Full Stack Development** — Full Stack Overview, Deployment, Git & Collaboration
 
-Each path contains multiple topics with explanations, code examples, and curated resources.
+Each path contains multiple topics with explanations, code examples, and curated resources, defined as `Topic` objects in the path's JSON file.
 
 ## Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- npm 10+
+
+### Setup
 
 1. **Fork** this repository.
 2. **Clone** your fork:
@@ -103,28 +96,115 @@ cd WebPath
 npm install
 ```
 
-4. Run locally:
+4. Run the dev server:
 
 ```bash
 npm run dev
 ```
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+5. Open [http://localhost:3000](http://localhost:3000).
 
-## Contributing
+### Available Scripts
 
-Please read the contributing guide and code of conduct before making changes:
+| Script           | Purpose                                      |
+|------------------|----------------------------------------------|
+| `npm run dev`    | Start Next.js dev server (Webpack)           |
+| `npm run build`  | Production build                             |
+| `npm start`      | Run the built app                            |
+| `npm run lint`   | Lint with ESLint                             |
 
-- [Contributing Guide](./CONTRIBUTING.MD)
-- [Code of Conduct](./CODE_OF_CONDUCT.md)
+## Data Model
+
+```ts
+// src/data/types.ts
+interface Resource {
+  title: string;
+  url: string;
+  type: "docs" | "tutorial" | "article" | "video";
+}
+
+interface Topic {
+  slug: string;
+  title: string;
+  description: string;
+  level: "beginner" | "intermediate" | "advanced";
+  order: number;
+  content: string;        // Markdown-ish: ## headings + ```code``` blocks
+  resources: Resource[];
+}
+
+interface Path {
+  slug: string;
+  title: string;
+  description: string;
+  icon: string;
+  color: string;
+  topics: Topic[];
+}
+```
+
+Helpers in `src/data/index.ts`:
+
+- `paths` — array of all paths
+- `getPath(slug)` — find a path by slug
+- `getTopic(pathSlug, topicSlug)` — find a topic within a path
+
+## How to Contribute
+
+Contributions are endless — here's how you can help.
+
+### Add a Topic
+
+Append a new topic object to a path JSON file in `src/data/paths/`:
+
+```json
+{
+  "slug": "typescript-basics",
+  "title": "TypeScript Basics",
+  "description": "Add static typing to JavaScript.",
+  "level": "intermediate",
+  "order": 6,
+  "content": "## Why TypeScript\n\nTypeScript adds...\n\n```ts\nconst greet = (name: string) => `Hello, ${name}`;\n```",
+  "resources": [
+    { "title": "TypeScript Docs", "url": "https://www.typescriptlang.org/docs/", "type": "docs" }
+  ]
+}
+```
+
+### Add a New Path
+
+1. Create a new JSON file in `src/data/paths/` (e.g., `devops.json`) following the `Path` interface.
+2. Import it in `src/data/index.ts` and add it to the `paths` array.
+
+### Other Ways to Contribute
+
+- Add curated resources to existing topics
+- Fix typos or improve explanations
+- Translate content
+- Add code examples
+- Improve UI/UX, accessibility, and performance
+- Pick up an open task from the [project board](https://github.com/orgs/SJA-Pathway/projects/1/views/1) — see [TASKS.md](./TASKS.md)
+
+## Guidelines
+
+- Keep explanations clear and beginner-friendly
+- Include working, self-contained code examples
+- Link to official documentation as primary resources
+- Use the correct `level`: `beginner`, `intermediate`, or `advanced`
+- Keep `order` unique within a path
+- Run `npm run lint` and `npm run build` locally before opening a PR
+
+## Branching & Deployment
+
+- `dev` — active development branch; deploys to `dev.webpath.sjapathway.com`
+- `main` — production; deploys to `webpath.sjapathway.com`
+- Open PRs against `dev`. Production releases are merged from `dev` → `main`.
+- Vercel auto-deploys on push. Set environment variables (e.g., `MONGODB_URI` once the DB layer lands) in the Vercel dashboard.
+
+## Roadmap
+
+See [TASKS.md](./TASKS.md) and the [GitHub project board](https://github.com/orgs/SJA-Pathway/projects/1/views/1) for the current backlog and in-progress work.
 
 ## License
 
-<div align="center">
-
-Open Source by [SJA Pathway](https://github.com/SJA-Pathway)
-
-![Contributors](https://img.shields.io/github/contributors/SJA-Pathway/WebPath)
-![Issues](https://img.shields.io/github/issues/SJA-Pathway/WebPath)
-
-</div>
+Open Source by [SJA Pathway](https://github.com/SJA-Pathway).
