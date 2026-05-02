@@ -38,7 +38,7 @@ a {
 }
 
 /* ============ NAVBAR ============ */
-.navbar {
+/* .navbar {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -98,8 +98,304 @@ a {
 
 .navbar-links a:hover {
   color: var(--primary);
+} */
+
+/* ── Navbar Base ── */
+/* ================================================
+   NAVBAR STYLES — paste in globals.css
+   ================================================ */
+
+.navbar {
+  background: rgba(255, 255, 255, 0.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  transition: box-shadow 0.25s ease;
 }
 
+.navbar.scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.navbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Brand ── */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.brand-logo-wrap {
+  border-radius: 9px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(108, 99, 255, 0.2);
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.28s ease;
+  flex-shrink: 0;
+}
+
+.navbar-brand:hover .brand-logo-wrap {
+  transform: rotate(-9deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.35);
+}
+
+.brand-text-wrap {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 3px;
+}
+
+.brand-text {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0f0f0f;
+  letter-spacing: -0.03em;
+}
+
+.brand-accent {
+  color: #6c63ff;
+}
+
+.brand-tagline {
+  font-size: 10px;
+  font-weight: 500;
+  color: #bbb;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Desktop Nav Links ── */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #444;
+  transition: background 0.18s, color 0.18s, transform 0.18s;
+}
+
+.nav-link svg {
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity 0.18s, transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nav-link:hover {
+  background: #f0eeff;
+  color: #6c63ff;
+  transform: translateY(-1px);
+}
+
+.nav-link:hover svg {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.contribute-btn {
+  color: #6c63ff;
+  border: 1.5px solid #6c63ff;
+  font-weight: 600;
+  margin-left: 6px;
+  background: transparent;
+}
+
+.contribute-btn:hover {
+  background: #6c63ff !important;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.28);
+}
+
+.contribute-btn:hover svg {
+  transform: rotate(15deg) scale(1.15) !important;
+  opacity: 1 !important;
+}
+
+.github-btn {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #fafafa;
+  color: #1a1a1a;
+  margin-left: 4px;
+}
+
+.github-btn:hover {
+  background: #111 !important;
+  color: #fff !important;
+  border-color: #111 !important;
+}
+
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 8px;
+  transition: background 0.18s;
+}
+
+.hamburger:hover {
+  background: #f0eeff;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Menu ── */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 62px;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 0.75rem 1.25rem 1.25rem;
+  z-index: 199;
+  flex-direction: column;
+  gap: 4px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  transition: background 0.18s, color 0.18s;
+}
+
+.mobile-link svg {
+  opacity: 0.55;
+  flex-shrink: 0;
+}
+
+.mobile-link:hover {
+  background: #f0eeff;
+  color: #6c63ff;
+}
+
+.mobile-link:hover svg {
+  opacity: 1;
+}
+
+.mobile-contribute {
+  color: #6c63ff;
+  border: 1.5px solid rgba(108, 99, 255, 0.25);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.mobile-contribute:hover {
+  background: #6c63ff !important;
+  color: #fff !important;
+}
+
+.mobile-github {
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.mobile-github:hover {
+  background: #111 !important;
+  color: #fff !important;
+}
+
+/* ── Overlay ── */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: 62px;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 198;
+  backdrop-filter: blur(2px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+  .desktop-links {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .menu-overlay {
+    display: block;
+  }
+}
 /* ============ FOOTER ============ */
 .footer {
   margin-top: 80px;
