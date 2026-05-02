@@ -64,6 +64,26 @@
         { "title": "Next.js Documentation", "url": "https://nextjs.org/docs", "type": "docs" },
         { "title": "Next.js Learn Course", "url": "https://nextjs.org/learn", "type": "tutorial" }
       ]
+    },
+    {
+      "slug": "typescript-intro",
+      "title": "Introduction to Typescript",
+      "description": "Make your program more predictable, maintainable, and scalable with TypeScript.",
+      "level": "beginner",
+      "order": 6,
+      "content": [
+        "Typescript is a superset of JavaScript that provides static typing allowing for safer, and more robust code.\n\n",
+        "## Key Concepts\n\n- **Static Typing**: Allows the decleration of types for variables, paramaters, and return values. \n```tsx\n// Example (Basic types: number, string, boolean, any, unknown and void)\n\nlet name: string = 'billy';\nlet age: number = 23;\n```",
+        "- **Type Inferance**: Let TypeScript figure out types automatically for cleaner, idiomatic code. \n```tsx\n let score = 100; // number\n``` \n- **Interfaces & Type Aliases**: Define custom objects, shapes, or types. \n```tsx \ninterface User { name: string; age: number } \ntype UserID = string | number;\n```",
+        "- **Classes & Access Modifiers**: Define visibility and permissions for methods, classes, and variables, this allows encapsulation to prevent unintended misuse of data. \n```tsx \nclass Patient { \n  private name: string; \n} \n```",
+        "- **Strict Mode**: TypeScript has an option to enable stricter checks for strict function types and null checking located in the tsconfig.json file. \n```tsx \n// tsconfig.json \n\"strict\": true\n```",
+        "Now let’s combine all these concepts into one example program!\n\n## Example\n```tsx\n// ===============================\n// TypeScript Example Program\n// ===============================\n\ninterface User {\n  name: string;\n  age: number;\n  id: UserID;\n}\n\ntype UserID = string | number;\n\nclass Patient {\n  private name: string;\n  private age: number;\n\n  constructor(name: string, age: number) {\n    this.name = name;\n    this.age = age;\n  }\n\n  public getInfo(): string {\n    return `${this.name} is ${this.age} years old.`;\n  }\n}\n\nlet userName: string = \"Billy\";\nlet userAge: number = 23;\nlet isActive: boolean = true;\n\nlet score = 100;\n\nlet userId: UserID = \"A123\";\nuserId = 456;\n\nfunction addScores(a: number, b: number): number {\n  return a + b;\n}\n\nconst user: User = {\n  name: userName,\n  age: userAge,\n  id: userId,\n};\n\nconst patient = new Patient(\"Alex\", 30);\n\nconsole.log(user);\nconsole.log(score);\nconsole.log(addScores(10, 20));\nconsole.log(patient.getInfo());\n```",
+        "Try to spot each of the concepts mentioned earlier in that example! Now try making a simple program yourself. \nAlthough it may seem unimpressive at first, TypeScript demonstrates its strength when paired with HTML, CSS, and React. This stack enables efficient development, improved code safety, and streamlined UI creation."
+      ],
+      "resources": [
+        {"title": "TypeScript Offical Handbook", "url": "https://www.typescriptlang.org/docs/handbook/intro.html", "type": "docs"},
+        {"title": "TypeScript for the New Programmer", "url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html", "type": "tutorial"}
+      ]
     }
   ]
 }
