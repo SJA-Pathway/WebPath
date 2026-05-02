@@ -22,8 +22,9 @@ export async function generateMetadata({
   };
 }
 
-function parseContent(raw: string) {
-  const lines = raw.split("\n");
+function parseContent(raw: string | string[]) {
+  const text = Array.isArray(raw) ? raw.join("\n") : raw;
+  const lines = text.split("\n");
   const elements: { type: string; content: string }[] = [];
   let inCodeBlock = false;
   let codeBuffer: string[] = [];
