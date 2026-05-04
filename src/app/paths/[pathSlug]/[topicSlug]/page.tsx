@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { paths, getTopic } from "@/data";
+import ReactMarkdown from "react-markdown";
 
 export function generateStaticParams() {
   return paths.flatMap((p) =>
@@ -22,48 +23,7 @@ export async function generateMetadata({
   };
 }
 
-function parseContent(raw: string) {
-  const lines = raw.split("\n");
-  const elements: { type: string; content: string }[] = [];
-  let inCodeBlock = false;
-  let codeBuffer: string[] = [];
 
-  for (const line of lines) {
-    if (line.startsWith("```")) {
-      if (inCodeBlock) {
-        elements.push({ type: "code", content: codeBuffer.join("\n") });
-        codeBuffer = [];
-        inCodeBlock = false;
-      } else {
-        inCodeBlock = true;
-      }
-      continue;
-    }
-
-    if (inCodeBlock) {
-      codeBuffer.push(line);
-      continue;
-    }
-
-    if (line.startsWith("## ")) {
-      elements.push({ type: "h2", content: line.slice(3) });
-    } else if (line.startsWith("- **")) {
-      const match = line.match(/^- \*\*(.+?)\*\*:?\s*(.*)$/);
-      if (match) {
-        elements.push({
-          type: "li-bold",
-          content: `<strong>${match[1]}</strong>: ${match[2]}`,
-        });
-      }
-    } else if (line.startsWith("- ")) {
-      elements.push({ type: "li", content: line.slice(2) });
-    } else if (line.trim()) {
-      elements.push({ type: "p", content: line });
-    }
-  }
-
-  return elements;
-}
 
 export default async function TopicPage({
   params,
@@ -80,7 +40,7 @@ export default async function TopicPage({
   const prev = currentIndex > 0 ? sorted[currentIndex - 1] : null;
   const next = currentIndex < sorted.length - 1 ? sorted[currentIndex + 1] : null;
 
-  const elements = parseContent(topic.content);
+  
 
   return (
     <>
@@ -96,31 +56,12 @@ export default async function TopicPage({
         <p>{topic.description}</p>
       </div>
 
-      <div className="topic-detail">
-        <div className="topic-content">
-          {elements.map((el, i) => {
-            if (el.type === "h2") return <h2 key={i}>{el.content}</h2>;
-            if (el.type === "code")
-              return (
-                <pre key={i}>
-                  <code>{el.content}</code>
-                </pre>
-              );
-            if (el.type === "li-bold")
-              return (
-                <ul key={i}>
-                  <li dangerouslySetInnerHTML={{ __html: el.content }} />
-                </ul>
-              );
-            if (el.type === "li")
-              return (
-                <ul key={i}>
-                  <li>{el.content}</li>
-                </ul>
-              );
-            return <p key={i}>{el.content}</p>;
-          })}
-        </div>
+     <div className="topic-content">
+       <div className="topic-content">
+         <ReactMarkdown>
+           {topic.content}
+         </ReactMarkdown>
+       </div>
 
         {topic.resources.length > 0 && (
           <div className="resources-section">
