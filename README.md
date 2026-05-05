@@ -1,6 +1,8 @@
 # WebPath by SJA Pathway
 
-An open-source, community-driven interactive roadmap for learning web development through structured learning paths.
+![SJA Logo](/assets/SJAlogo.png)
+
+WebPath is a open-source platform, that provides a **structured, community-driven interactive roadmap** for learning web development.  
 Pick a path, learn at your own pace, and contribute your own educational content along the way to improve the platform for others.
 
 **Production**: [webpath.sjapathway.com](https://webpath.sjapathway.com)
@@ -12,7 +14,7 @@ Empowering developers and learners to master web development through structured,
 
 ## Features
 
-- Structured learning paths (Frontend, Backend, and Full Stack)
+- Structured learning paths (Frontend, Backend, and Fullstack)
 - Topic based content system
 - Code examples and curated resources
 - Community-driven contributions
@@ -101,3 +103,6 @@ Please read the contributing guide and code of conduct before making changes:
 ## License
 
 Open Source by [SJA Pathway](https://github.com/SJA-Pathway)
+
+![Contributors](https://img.shields.io/github/contributors/SJA-Pathway/WebPath)
+![Issues](https://img.shields.io/github/issues/SJA-Pathway/WebPath)
