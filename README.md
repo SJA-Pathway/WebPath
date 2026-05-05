@@ -6,7 +6,9 @@
 
 <div align="center">
 
-WebPath is a open-source platform, that provides a **structured, community-driven interactive roadmap** for learning web development.  
+---
+
+WebPath is a open-source platform, that provides a **community-driven interactive roadmap** for learning web development.  
 
 Pick a path, learn at your own pace, and contribute your own educational content along the way to improve the platform for others.
 
