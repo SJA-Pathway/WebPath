@@ -1,12 +1,21 @@
 # WebPath by SJA Pathway
 
-![SJA Logo](/assets/SJAlogo.png)
+<p align="center">
+    <img src="/assets/SJAlogo.png" alt="SJA Logo" width="400">
+</p>
+
+<div align="center">
 
 WebPath is a open-source platform, that provides a **structured, community-driven interactive roadmap** for learning web development.  
+
 Pick a path, learn at your own pace, and contribute your own educational content along the way to improve the platform for others.
+
+---
 
 **Production**: [webpath.sjapathway.com](https://webpath.sjapathway.com)
 **Development**: [dev.webpath.sjapathway.com](https://dev.webpath.sjapathway.com)
+
+</div>
 
 ## Vision
 
@@ -20,6 +29,8 @@ Empowering developers and learners to master web development through structured,
 - Community-driven contributions
 - Scalable Architecture
 
+<div align="center">
+
 ## Tech Stack
 
 | Layer           | Technology                   |
@@ -29,6 +40,13 @@ Empowering developers and learners to master web development through structured,
 | Database        | MongoDB Atlas (Mongoose)     |
 | Styling         | Tailwind CSS 4               |
 | Version Control | Git + GitHub                 |
+
+<br>
+
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,ts,nextjs,mongodb,tailwind,git,github&perline=9" alt="Tech Stack Icons"/>
+  </a>
+</div>
 
 ## Project Structure
 
@@ -102,7 +120,11 @@ Please read the contributing guide and code of conduct before making changes:
 
 ## License
 
+<div align="center">
+
 Open Source by [SJA Pathway](https://github.com/SJA-Pathway)
 
 ![Contributors](https://img.shields.io/github/contributors/SJA-Pathway/WebPath)
 ![Issues](https://img.shields.io/github/issues/SJA-Pathway/WebPath)
+
+</div>
