@@ -1,37 +1,23 @@
-# How to Contribute
+# Contributing to WebPath
+
+Thank you for your interest in contributing to WebPath!
+This project is built by the community, for the community, and any contribution counts.
 
 Contributions are endless — here's how you can help:
 
-## Add a Topic
-
-Add a new topic object to any path JSON file in `src/data/paths/`:
-
-```json
-{
-  "slug": "typescript-basics",
-  "title": "TypeScript Basics",
-  "description": "Add static typing to JavaScript.",
-  "level": "intermediate",
-  "order": 6,
-  "content": "Your content here with ## headings and ```code blocks```",
-  "resources": [
-    { "title": "TypeScript Docs", "url": "https://www.typescriptlang.org/docs/", "type": "docs" }
-  ]
-}
-```
-
-### Add a New Path
-
-1. Create a new JSON file in `src/data/paths/` (e.g., `devops.json`)
-2. Import it in `src/data/index.ts`
-
-### Other Ways to Contribute
+## Ways to Contribute
 
 - Add curated resources to existing topics
 - Fix typos or improve explanations
+- Improve UI/UX
 - Translate content
 - Add code examples
-- Improve UI/UX
+
+<div align="center">
+
+**Author your own topics:** [Topic Authoring Guide](/CONTENT_AUTHORING.md)
+
+</div>
 
 ## Guidelines
 
@@ -42,19 +28,72 @@ Add a new topic object to any path JSON file in `src/data/paths/`:
 - When coding keep components reuseable
 - Avoid breaking changes
 - Test locally before submitting a PR
+- Use proper branch naming and commit message conventions:
+  - Use `example/description...` for branch naming (e.g. `feature/landing-page-redesign`)
+  - Use `example: description` for commit messages (e.g. `docs: add authoring guide`)
+
+## Getting Started
+
+1. **Fork** this repository.
+2. **Clone** your fork:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/WebPath.git
+cd WebPath
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Run locally:
+
+```bash
+npm run dev
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Development
+
+1. Create a new branch:
+
+```bash
+git checkout -b feature/your-feature
+```
+
+2. Make your changes
+
+3. Commit with a clear message:
+
+```bash
+git commit -m "feat: add feature"
+```
+
+4. Push your branch:
+```bash
+git push origin feature/your-feature
+```
+
+5. Open a Pull Request
+
+## Reporting Issues
+
+If you find a bug or problem:
+
+- Check if it exists in issues
+- Provide clear description of the issue
+- Include reproduction steps
+- Add relevant screenshots
 
 ## Deployment
 
 - Push to main → Vercel auto-deploys frontend + API routes
 - Set environment variables (e.g., `MONGODB_URI`) in the Vercel dashboard
 
-## Workflow
+---
 
-```bash
-git checkout -b feature/your-feature
-# make changes
-git commit -m "feat: add feature"
-git push origin feature/your-feature
-```
-
-Then open a Pull Request.
+Thanks for contributing!
+Every little thing helps make WebPath better for everyone!
