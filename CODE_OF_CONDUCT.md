@@ -6,7 +6,9 @@ SJA Pathway is committed to providing a respectful and inclusive environment for
 
 ---
 
-## Expected Behavior
+## Our Standards
+
+### Expected Behavior
 
 - Be respectful and professional
 - Be welcoming and helpful to new users
@@ -16,7 +18,7 @@ SJA Pathway is committed to providing a respectful and inclusive environment for
 
 ---
 
-## Unacceptable Behavior
+### Unacceptable Behavior
 
 - Harassment or discriminatory language
 - Toxic or disrespectful attacks
@@ -24,7 +26,11 @@ SJA Pathway is committed to providing a respectful and inclusive environment for
 
 ---
 
-## Enforcement
+## Enforcement Responsibilities
+
+SJA Pathway employees are responsible for clarifying and enforcing standards.
+
+## Enforcement Actions
 
 SJA Pathway may:
 
@@ -34,7 +40,7 @@ SJA Pathway may:
 
 ---
 
-## Reporting Issues
+## Reporting
 
 Report issues to SJA privately.
 
