@@ -27,7 +27,10 @@ export default async function PathPage({
   params: Promise<{ pathSlug: string }>;
 }) {
   const { pathSlug } = await params;
-  const path = getPath(pathSlug);
+
+  const response = await fetch(`http://localhost:3000/api/paths/${pathSlug}`)
+  const path = await response.json()
+
   if (!path) notFound();
 
   const sorted = [...path.topics].sort((a, b) => a.order - b.order);

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { paths, getTopic } from "@/data";
+import { paths, getTopic, Path, Topic } from "@/data";
 import ReactMarkdown from "react-markdown";
 
 export function generateStaticParams() {
@@ -31,7 +31,8 @@ export default async function TopicPage({
   params: Promise<{ pathSlug: string; topicSlug: string }>;
 }) {
   const { pathSlug, topicSlug } = await params;
-  const result = getTopic(pathSlug, topicSlug);
+  const response = await fetch(`http://localhost:3000/api/paths/${pathSlug}/${topicSlug}`) 
+  const result = await response.json() as { path: Path; topic: Topic } | undefined;
   if (!result) notFound();
 
   const { path, topic } = result;
