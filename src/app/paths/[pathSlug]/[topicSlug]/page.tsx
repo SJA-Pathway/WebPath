@@ -59,7 +59,9 @@ export default async function TopicPage({
      <div className="topic-content">
        <div className="topic-content">
          <ReactMarkdown>
-           {topic.content}
+           {Array.isArray(topic.content)
+              ? topic.content.join("\n\n")
+              : topic.content}
          </ReactMarkdown>
        </div>
 
