@@ -37,6 +37,39 @@ a {
   text-decoration: none;
 }
 
+/* ============ PILL FILTER BUTTONS ============ */
+.pill-button {
+  padding: 6px 12px;
+  border-radius: 9999px;
+  border: 1px solid;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.pill-button.inactive {
+  background-color: #ffffff;
+  color: #374151;
+  border-color: #d1d5db;
+}
+
+.pill-button.inactive:hover {
+  border-color: #9ca3af;
+  background-color: #f9fafb;
+}
+
+.pill-button.active {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.pill-button.active:hover {
+  background-color: #1046da;
+}
+
 /* ============ NAVBAR ============ */
 /* .navbar {
   position: sticky;
@@ -630,7 +663,7 @@ a {
 .page-header {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 48px 24px 32px;
+  padding: 48px 24px 12px;
 }
 
 .page-header h1 {
@@ -650,7 +683,7 @@ a {
   gap: 8px;
   font-size: 0.9rem;
   color: var(--muted);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .breadcrumb a {
@@ -666,6 +699,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-top: 16px;
 }
 
 .topic-card {

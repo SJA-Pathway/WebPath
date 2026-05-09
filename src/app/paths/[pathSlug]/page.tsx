@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { paths, getPath } from "@/data";
-import TopicCard from "@/components/TopicCard";
+import TopicsListSection from "@/components/TopicsListSection";
 
 export function generateStaticParams() {
   return paths.map((p) => ({ pathSlug: p.slug }));
@@ -45,14 +45,7 @@ export default async function PathPage({
       </div>
       <section className="section">
         <div className="topics-list">
-          {sorted.map((topic, i) => (
-            <TopicCard
-              key={topic.slug}
-              topic={topic}
-              pathSlug={path.slug}
-              index={i}
-            />
-          ))}
+          <TopicsListSection topics={sorted} pathSlug={path.slug} />
         </div>
       </section>
     </>
