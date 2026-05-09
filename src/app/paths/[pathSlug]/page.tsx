@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { paths, getPath } from "@/data";
-import TopicCard from "@/components/TopicCard";
 import { ChevronRight } from "lucide-react";
+import TopicsListSection from "@/components/TopicsListSection";
 
 export function generateStaticParams() {
   return paths.map((p) => ({ pathSlug: p.slug }));
@@ -55,11 +55,9 @@ export default async function PathPage({
         </div>
       </div>
 
-      <section className="container mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 gap-6 max-w-4xl mx-auto">
-          {sorted.map((topic, i) => (
-            <TopicCard key={topic.slug} topic={topic} pathSlug={path.slug} index={i} />
-          ))}
+      <section className="section">
+        <div className="topics-list">
+          <TopicsListSection topics={sorted} pathSlug={path.slug} />
         </div>
       </section>
     </main>
