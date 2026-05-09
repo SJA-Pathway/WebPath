@@ -94,7 +94,7 @@ export default function Navbar() {
             <div className="brand-logo-wrap">
               <Image
                 src="/sjapathwaylogo.png"
-                alt="WebPath"
+                alt="Cairn"
                 width={34}
                 height={34}
                 quality={100}
@@ -103,10 +103,8 @@ export default function Navbar() {
               />
             </div>
             <div className="brand-text-wrap">
-              <span className="brand-text">
-                Web<span className="brand-accent">Path</span>
-              </span>
-              <span className="brand-tagline">by SJA</span>
+              <span className="brand-text">Cairn</span>
+              <span className="brand-tagline">by SJA Pathway</span>
             </div>
           </Link>
 

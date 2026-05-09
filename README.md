@@ -1,14 +1,30 @@
-# WebPath by SJA Pathway
+# Cairn — by SJA Pathway
 
-An open-source, community-driven interactive roadmap for learning web development. Pick a path, learn at your own pace, and contribute along the way.
+> **Mark the way through web development.**
+
+Cairn is an open-source, community-built roadmap for learning web development. Every contributor adds a stone — every learner finds the way.
 
 - **Production**: [webpath.sjapathway.com](https://webpath.sjapathway.com)
 - **Development**: [dev.webpath.sjapathway.com](https://dev.webpath.sjapathway.com)
 - **Project Board**: [SJA-Pathway/projects/1](https://github.com/orgs/SJA-Pathway/projects/1/views/1)
+- **Repository**: [github.com/SJA-Pathway/WebPath](https://github.com/SJA-Pathway/WebPath) (the repo, deployment slug, and `webpath` subdomain remain `webpath` — `Cairn` is the public-facing brand)
+
+## Why "Cairn"?
+
+A **cairn** is a stack of stones built up by travelers along a trail. Each passing hiker adds one to mark the way for those who follow — a small, generous act that turns a wilderness into a path.
+
+That's the model for this project:
+
+- **Built by the people who walk it.** Every learner who passes through can leave a stone — a topic, a resource, a clearer explanation, a typo fix.
+- **Useful even when half-built.** A trail with a few cairns is already easier to follow than no trail at all. You don't need permission or a finished product to start helping the next person.
+- **Stronger over time.** Stones don't replace each other; they stack. The roadmap gets richer with every contribution rather than lurching between rewrites.
+- **Pairs naturally with SJA Pathway.** The parent brand names the *journey*; Cairn names *what travelers leave behind for each other along the way*.
+
+The repo, Cloudflare Worker, and `webpath.sjapathway.com` URL keep the `webpath` slug — Cairn is the brand on the front of the door, `webpath` is the address on the mailbox.
 
 ## Vision
 
-Empowering developers and learners to master web development through structured, community-maintained learning paths — freely, collaboratively, and without limits.
+Empowering developers and learners to master web development through structured, community-maintained learning paths — freely, collaboratively, and without limits. Every learner is also a future contributor: pass through, learn, and leave a stone.
 
 ## Tech Stack
 
@@ -21,14 +37,14 @@ Empowering developers and learners to master web development through structured,
 | Data (current)   | Static JSON in `src/data/paths/`        |
 | Data (planned)   | MongoDB Atlas via Mongoose 8            |
 | HTTP             | Axios                                   |
-| Hosting          | Vercel (production + dev environments)  |
+| Hosting          | Cloudflare Workers (production + dev)   |
 | Linting          | ESLint 9 (`eslint-config-next`)         |
 | Version Control  | Git + GitHub                            |
 
 ## Project Structure
 
 ```
-WebPath/
+WebPath/  # repo name; the product is "Cairn"
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx                  # Root layout (Navbar + Footer)
@@ -199,7 +215,7 @@ Append a new topic object to a path JSON file in `src/data/paths/`:
 - `dev` — active development branch; deploys to `dev.webpath.sjapathway.com`
 - `main` — production; deploys to `webpath.sjapathway.com`
 - Open PRs against `dev`. Production releases are merged from `dev` → `main`.
-- Vercel auto-deploys on push. Set environment variables (e.g., `MONGODB_URI` once the DB layer lands) in the Vercel dashboard.
+- Cloudflare Workers auto-deploys on push. Set environment variables (e.g., `MONGODB_URI` once the DB layer lands) in the Cloudflare dashboard.
 
 ## Roadmap
 

@@ -15,9 +15,10 @@ export default function Footer() {
             unoptimized
             style={{ mixBlendMode: "multiply", borderRadius: 6 }}
           />
-          <span>WebPath</span>
+          <span>Cairn</span>
           <p className="footer-tagline">
-            An open-source interactive roadmap for web developers.
+            Mark the way through web development. An open-source roadmap built
+            stone by stone by the community.
           </p>
         </div>
         <div className="footer-links">

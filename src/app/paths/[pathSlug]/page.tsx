@@ -16,7 +16,7 @@ export async function generateMetadata({
   const path = getPath(pathSlug);
   if (!path) return {};
   return {
-    title: `${path.title} | WebPath`,
+    title: `${path.title} | Cairn`,
     description: path.description,
   };
 }

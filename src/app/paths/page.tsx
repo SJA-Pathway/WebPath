@@ -3,7 +3,7 @@ import { paths } from "@/data";
 
 
 export const metadata = {
-  title: "All Paths | WebPath",
+  title: "All Paths | Cairn",
   description: "Explore all web development learning paths.",
 };
 

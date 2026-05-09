@@ -18,7 +18,7 @@ export async function generateMetadata({
   const result = getTopic(pathSlug, topicSlug);
   if (!result) return {};
   return {
-    title: `${result.topic.title} | ${result.path.title} | WebPath`,
+    title: `${result.topic.title} | ${result.path.title} | Cairn`,
     description: result.topic.description,
   };
 }

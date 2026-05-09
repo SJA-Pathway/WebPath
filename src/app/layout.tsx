@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WebPath — Your Web Development Journey",
+  title: "Cairn — Mark the way through web development",
   description:
-    "An open-source, community-driven roadmap for learning web development. By SJA Pathway.",
+    "Cairn is an open-source, community-built roadmap for learning web development. Every contributor adds a stone — every learner finds the way. By SJA Pathway.",
 };
 
 export default function RootLayout({

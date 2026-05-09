@@ -1,18 +1,19 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "Contribute | WebPath",
-  description: "Learn how to contribute to WebPath — add topics, paths, resources, and more.",
+  title: "Contribute | Cairn",
+  description: "Learn how to contribute to Cairn — add topics, paths, resources, and more.",
 };
 
 export default function ContributePage() {
   return (
     <>
       <div className="page-header">
-        <h1>Contribute to WebPath</h1>
+        <h1>Contribute to Cairn</h1>
         <p>
-          WebPath is open source and community-driven. Every contribution helps
-          someone learn web development.
+          Cairn is open source and community-built. Every contribution is
+          another stone on the trail — leaving the path clearer for the next
+          learner who walks it.
         </p>
       </div>
 

@@ -7,13 +7,15 @@ export default function Home() {
     <>
       <section className="hero">
         <h1>
-          Your <span className="highlight">Web Development</span> Journey
+          Mark the way through
           <br />
-          Starts Here
+          <span className="highlight">Web Development</span>
         </h1>
         <p>
-          An open-source, community-driven roadmap to becoming a web developer.
-          Pick a path, learn at your own pace, and contribute along the way.
+          Cairn is an open-source roadmap built stone by stone by the
+          community. Every contributor adds a marker; every learner finds the
+          way. Pick a path, learn at your pace, and leave a stone for whoever
+          comes next.
         </p>
         <div className="hero-actions">
           <Link href="/paths" className="btn-primary">
