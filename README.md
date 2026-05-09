@@ -1,13 +1,35 @@
 # WebPath by SJA Pathway
 
-An open-source, community-driven interactive roadmap for learning web development. Pick a path, learn at your own pace, and contribute along the way.
+<p align="center">
+    <img src="/assets/SJAlogo.png" alt="SJA Logo" width="400">
+</p>
+
+<div align="center">
+
+---
+
+WebPath is a open-source platform, that provides a **community-driven interactive roadmap** for learning web development. Pick a path, learn at your own pace, and contribute your own educational content along the way to improve the platform for others.
+
+---
 
 **Production**: [webpath.sjapathway.com](https://webpath.sjapathway.com)
 **Development**: [dev.webpath.sjapathway.com](https://dev.webpath.sjapathway.com)
 
+</div>
+
 ## Vision
 
 Empowering developers and learners to master web development through structured, community-maintained learning paths — freely, collaboratively, and without limits.
+
+## Features
+
+- Structured learning paths (Frontend, Backend, and Fullstack)
+- Topic based content system
+- Code examples and curated resources
+- Community-driven contributions
+- Scalable Architecture
+
+<div align="center">
 
 ## Tech Stack
 
@@ -18,6 +40,13 @@ Empowering developers and learners to master web development through structured,
 | Database        | MongoDB Atlas (Mongoose)     |
 | Styling         | Tailwind CSS 4               |
 | Version Control | Git + GitHub                 |
+
+<br>
+
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,ts,nextjs,mongodb,tailwind,git,github&perline=9" alt="Tech Stack Icons"/>
+  </a>
+</div>
 
 ## Project Structure
 
@@ -82,54 +111,20 @@ npm run dev
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## How to Contribute
+## Contributing
 
-Contributions are endless — here's how you can help:
+Please read the contributing guide and code of conduct before making changes:
 
-### Add a Topic
-
-Add a new topic object to any path JSON file in `src/data/paths/`:
-
-```json
-{
-  "slug": "typescript-basics",
-  "title": "TypeScript Basics",
-  "description": "Add static typing to JavaScript.",
-  "level": "intermediate",
-  "order": 6,
-  "content": "Your content here with ## headings and ```code blocks```",
-  "resources": [
-    { "title": "TypeScript Docs", "url": "https://www.typescriptlang.org/docs/", "type": "docs" }
-  ]
-}
-```
-
-### Add a New Path
-
-1. Create a new JSON file in `src/data/paths/` (e.g., `devops.json`)
-2. Import it in `src/data/index.ts`
-
-### Other Ways to Contribute
-
-- Add curated resources to existing topics
-- Fix typos or improve explanations
-- Translate content
-- Add code examples
-- Improve UI/UX
-
-## Guidelines
-
-- Keep explanations clear and beginner-friendly
-- Include working code examples
-- Link to official documentation as primary resources
-- Use correct `level`: beginner, intermediate, or advanced
-- Test locally before submitting a PR
-
-## Deployment
-
-- Push to main → Vercel auto-deploys frontend + API routes
-- Set environment variables (e.g., `MONGODB_URI`) in the Vercel dashboard
+- [Contributing Guide](./CONTRIBUTING.MD)
+- [Code of Conduct](./CODE_OF_CONDUCT.md)
 
 ## License
 
+<div align="center">
+
 Open Source by [SJA Pathway](https://github.com/SJA-Pathway)
+
+![Contributors](https://img.shields.io/github/contributors/SJA-Pathway/WebPath)
+![Issues](https://img.shields.io/github/issues/SJA-Pathway/WebPath)
+
+</div>

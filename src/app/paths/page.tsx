@@ -1,5 +1,6 @@
+import PathsClient from "@/components/PathsClient";
 import { paths } from "@/data";
-import PathCard from "@/components/PathCard";
+
 
 export const metadata = {
   title: "All Paths | WebPath",
@@ -16,13 +17,8 @@ export default function PathsPage() {
           journey from beginner to advanced topics.
         </p>
       </div>
-      <section className="section">
-        <div className="paths-grid">
-          {paths.map((path) => (
-            <PathCard key={path.slug} path={path} />
-          ))}
-        </div>
-      </section>
+
+      <PathsClient paths={paths} />
     </>
   );
 }
