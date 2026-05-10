@@ -14,7 +14,7 @@ module.exports = {
         'categories:accessibility': ['error', {minScore: 0.95}],
         'first-contentful-paint': ['warn', {maxNumericValue: 2000}],
         'interactive': ['error', {maxNumericValue: 3500}],
-        'resource-summary:mainthread-work-breakdown:total': ['warn', {maxNumericValue: 5000}],
+        'mainthread-work-breakdown:total': ['warn', {maxNumericValue: 5000}],
       },
     },
     upload: {
