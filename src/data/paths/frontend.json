@@ -15,7 +15,9 @@
       "resources": [
         { "title": "MDN: HTML Basics", "url": "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics", "type": "docs" },
         { "title": "W3Schools HTML Tutorial", "url": "https://www.w3schools.com/html/", "type": "tutorial" }
-      ]
+      ],
+      "videoId": "fcb5536551b80f1a329124037130a00d"
+      
     },
     {
       "slug": "css-fundamentals",

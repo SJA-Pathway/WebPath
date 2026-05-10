@@ -12,6 +12,7 @@ export interface Topic {
   order: number;
   content: string;
   resources: Resource[];
+  videoId?: string;
 }
 
 export interface Path {
