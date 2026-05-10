@@ -680,3 +680,22 @@ a {
     align-items: flex-start;
   }
 }
+
+.video-wrapper {
+  position: relative;
+  padding-top: 56.25%;
+  margin-bottom: 2rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+

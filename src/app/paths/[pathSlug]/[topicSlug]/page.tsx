@@ -44,7 +44,7 @@ export default async function TopicPage({
 
   return (
     <>
-      <div className="page-header">
+        <div className="page-header">
         <div className="breadcrumb">
           <Link href="/paths">Paths</Link>
           <span>/</span>
@@ -55,6 +55,17 @@ export default async function TopicPage({
         <h1>{topic.title}</h1>
         <p>{topic.description}</p>
       </div>
+      
+      {topic.videoId && (
+        <div className="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/ok-plXXHlWw"
+            style={{ border: 'none', position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+       )}
 
      <div className="topic-content">
        <div className="topic-content">
@@ -62,6 +73,9 @@ export default async function TopicPage({
            {topic.content}
          </ReactMarkdown>
        </div>
+
+       
+
 
         {topic.resources.length > 0 && (
           <div className="resources-section">
