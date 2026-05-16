@@ -20,14 +20,17 @@ export default function TopicsListSection({ topics, pathSlug }: TopicsListSectio
                 <PillFilter onChange={setFilter} />
             </div>
             <div className="grid gap-6">
-                {filteredTopics.map((topic, i) => (
-                    <TopicCard
-                        key={topic.slug}
-                        topic={topic}
-                        pathSlug={pathSlug}
-                        index={i}
-                    />
-                ))}
+                {filteredTopics.map((topic) => {
+                    const originalIndex = topics.findIndex(t => t.slug === topic.slug);
+                    return (
+                        <TopicCard
+                            key={topic.slug}
+                            topic={topic}
+                            pathSlug={pathSlug}
+                            index={originalIndex}
+                        />
+                    );
+                })}
             </div>
         </div>
     );
