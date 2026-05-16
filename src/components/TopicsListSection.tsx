@@ -15,11 +15,11 @@ export default function TopicsListSection({ topics, pathSlug }: TopicsListSectio
     const filteredTopics = filter.length === 0 ? topics : topics.filter(t => filter.includes(t.level as Level));
     
     return (
-        <div>
+        <div className="mx-auto max-w-6xl space-y-6">
             <div>
                 <PillFilter onChange={setFilter} />
             </div>
-            <div className="topics-list">
+            <div className="grid gap-6">
                 {filteredTopics.map((topic, i) => (
                     <TopicCard
                         key={topic.slug}

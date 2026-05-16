@@ -55,9 +55,11 @@ export default async function PathPage({
         </div>
       </div>
 
-      <section className="section">
-        <div className="topics-list">
-          <TopicsListSection topics={sorted} pathSlug={path.slug} />
+      <section className="bg-slate-50 py-12">
+        <div className="container mx-auto px-6">
+          <div className="mx-auto max-w-6xl">
+            <TopicsListSection topics={sorted} pathSlug={path.slug} />
+          </div>
         </div>
       </section>
     </main>
