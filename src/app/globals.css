@@ -27,6 +27,16 @@
   --animate-fade-in: fade-in 0.5s ease-out forwards;
   --animate-shimmer: shimmer 2s linear infinite;
 
+/* ============ NAVBAR ============ */
+/* .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
   @keyframes fade-in {
     0% { opacity: 0; transform: translateY(10px); }
     100% { opacity: 1; transform: translateY(0); }
@@ -48,4 +58,5 @@
   background: linear-gradient(90deg, var(--color-surface-tertiary) 0%, var(--color-border) 50%, var(--color-surface-tertiary) 100%);
   background-size: 200% 100%;
   animation: shimmer 2s linear infinite;
+} */
 }
