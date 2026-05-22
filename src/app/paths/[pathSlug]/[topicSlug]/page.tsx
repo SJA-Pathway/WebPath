@@ -43,8 +43,8 @@ export default async function TopicPage({
   
 
   return (
-    <>
-        <div className="page-header">
+    <div className="topic-detail">
+      <div className="page-header">
         <div className="breadcrumb">
           <Link href="/paths">Paths</Link>
           <span>/</span>
@@ -59,23 +59,16 @@ export default async function TopicPage({
       {topic.videoId && (
         <div className="video-wrapper">
           <iframe
-            src="https://www.youtube.com/embed/ok-plXXHlWw"
-            style={{ border: 'none', position: 'absolute', top: 0, left: 0, height: '100%', width: '100%' }}
+            src={`https://www.youtube.com/embed/${topic.videoId}`}
+            title={topic.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
-          />
+          ></iframe>
         </div>
-       )}
+      )}
 
-     <div className="topic-content">
-       <div className="topic-content">
-         <ReactMarkdown>
-           {topic.content}
-         </ReactMarkdown>
-       </div>
-
-       
-
+      <div className="topic-content">
+        <ReactMarkdown>{topic.content}</ReactMarkdown>
 
         {topic.resources.length > 0 && (
           <div className="resources-section">
@@ -114,6 +107,6 @@ export default async function TopicPage({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
