@@ -2,6 +2,9 @@
   "name": "webpath",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "scripts": {
     "build": "next build --webpack",
     "dev": "next dev --webpack",
@@ -16,10 +19,14 @@
     "@opennextjs/cloudflare": "^1.18.1",
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.14.0",
     "mongoose": "^8.19.3",
     "next": "^16.2.2",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-icons": "^5.6.0",
+    "react-markdown": "^10.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -31,6 +38,6 @@
     "eslint-config-next": "^16.2.2",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "wrangler": "^4.81.0"
+    "wrangler": "^4.92.0"
   }
 }
