@@ -13,7 +13,7 @@ export default function Footer() {
             height={36}
             quality={100}
             unoptimized
-            style={{ mixBlendMode: "multiply", borderRadius: 6 }}
+            style={{borderRadius: 6, backgroundColor: "white", padding: "2px",}}
           />
           <span>WebPath</span>
           <p className="footer-tagline">

@@ -12,6 +12,15 @@
   --radius: 12px;
 }
 
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --surface: #1e293b;
+  --surface-hover: #334155;
+  --border: #334155;
+  --muted: #94a3b8;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -42,7 +51,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--surface);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
