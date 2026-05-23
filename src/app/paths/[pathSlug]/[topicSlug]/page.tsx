@@ -8,7 +8,8 @@ import { ChevronLeft, ChevronRight, ExternalLink, BookOpen, Code, ArrowLeft } fr
 import React from "react";
 
 function parseContent(raw: string) {
-  const lines = raw.split("\n");
+  const text = Array.isArray(raw) ? raw.join("\n") : raw;
+  const lines = text.split("\n");
   const elements: { type: string; content: string }[] = [];
   let inCodeBlock = false;
   let codeBuffer: string[] = [];
