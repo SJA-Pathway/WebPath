@@ -57,15 +57,15 @@ export default async function TopicPage({
       </div>
       
       {topic.videoId && (
-        <div className="video-wrapper">
-          <iframe
-            src={`https://www.youtube.com/embed/${topic.videoId}`}
-            title={topic.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      )}
+  <div className="video-wrapper">
+    <iframe
+      src={`https://www.youtube.com/embed/${topic.videoId}`}
+      title={topic.title}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  </div>
+)}
 
       <div className="topic-content">
         <ReactMarkdown>{topic.content}</ReactMarkdown>

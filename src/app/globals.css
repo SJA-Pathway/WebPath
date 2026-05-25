@@ -703,11 +703,13 @@ a {
 
 .video-wrapper {
   position: relative;
-  padding-top: 56.25%;
-  margin-bottom: 2rem;
-  border-radius: 0.75rem;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
   overflow: hidden;
-  background-color: #000;
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+  background: #000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .video-wrapper iframe {
