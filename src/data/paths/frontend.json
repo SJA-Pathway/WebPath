@@ -109,6 +109,29 @@
           "type": "tutorial"
         }
       ]
+    },
+    {
+      "slug": "typescript-intro",
+      "title": "Introduction to Typescript",
+      "description": "Make your program more predictable, maintainable, and scalable with TypeScript.",
+      "level": "beginner",
+      "order": 6,
+      "content": [
+        "Typescript is a superset of JavaScript that provides static typing, allowing for safer and more robust code.",
+        "## Key Concepts\n\n- **Static Typing**: Allows the declaration of types for variables, parameters, and return values.\n```tsx\n// Example (Basic types: number, string, boolean, any, unknown and void)\n\nlet name: string = 'billy';\nlet age: number = 23;\n```",
+        "- **Type Inference**: Lets TypeScript figure out types automatically for cleaner, idiomatic code.\n```tsx\nlet score = 100; // number\n```",
+        "- **Interfaces & Type Aliases**: Define custom objects, shapes, or types.\n```tsx\ninterface User {\n  name: string;\n  age: number;\n}\n\ntype UserID = string | number;\n```",
+        "- **Classes & Access Modifiers**: Define visibility and permissions for methods, classes, and variables. This allows encapsulation to prevent unintended misuse of data.\n```tsx\nclass Patient {\n  private name: string;\n}\n```",
+        "- **Generics**: Allow reusable components and functions that work with multiple types while still maintaining type safety.\n```tsx\nfunction identity<T>(value: T): T {\n  return value;\n}\n\nlet num = identity<number>(42);\nlet str = identity<string>(\"hello\");\n```",
+        "- **Strict Mode**: TypeScript has an option to enable stricter checks for function types and null checking located in the tsconfig.json file.\n```tsx\n// tsconfig.json\n{\n  \"strict\": true\n}\n```",
+        "Now let’s combine all these concepts into one example program!\n\n## Example\n\n```tsx\n// ===============================\n// TypeScript Example Program\n// ===============================\n\ninterface User {\n  name: string;\n  age: number;\n  id: UserID;\n}\n\ntype UserID = string | number;\n\nclass Patient {\n  private name: string;\n  private age: number;\n\n  constructor(name: string, age: number) {\n    this.name = name;\n    this.age = age;\n  }\n\n  public getInfo(): string {\n    return `${this.name} is ${this.age} years old.`;\n  }\n}\n\nfunction identity<T>(value: T): T {\n  return value;\n}\n\nlet userName: string = \"Billy\";\nlet userAge: number = 23;\nlet isActive: boolean = true;\n\nlet score = 100;\n\nlet userId: UserID = \"A123\";\nuserId = 456;\n\nfunction addScores(a: number, b: number): number {\n  return a + b;\n}\n\nconst user: User = {\n  name: userName,\n  age: userAge,\n  id: userId,\n};\n\nconst patient = new Patient(\"Alex\", 30);\n\nconst genericNumber = identity<number>(123);\nconst genericString = identity<string>(\"hello\");\n\nconsole.log(user);\nconsole.log(score);\nconsole.log(addScores(10, 20));\nconsole.log(patient.getInfo());\nconsole.log(genericNumber);\nconsole.log(genericString);\n```",
+        "Try to spot each of the concepts mentioned earlier in that example! Now try making a simple program yourself.\nAlthough it may seem unimpressive at first, TypeScript demonstrates its strength when paired with HTML, CSS, and React. This stack enables efficient development, improved code safety, and streamlined UI creation.",
+        "## TSX (TypeScript + JSX)\n\nTSX is a file format used in React applications that combines TypeScript with JSX syntax. It allows you to write React components using HTML-like code while still benefiting from TypeScript’s static typing.\n\n- **JSX Support**: Lets you write UI elements using HTML-like syntax directly inside TypeScript files.\n- **Type Safety**: Adds compile-time checks for props, state, and component structure.\n- **Common Use**: Used in React components instead of plain `.ts` files when UI rendering is involved.\n\n```tsx\n// Example TSX component\n\ntype Props = {\n  name: string;\n};\n\nexport default function Greeting({ name }: Props) {\n  return <h1>Hello, {name}!</h1>;\n}\n```\n\nTSX is mainly used in React projects to build components that are both type-safe and easy to read."
+      ],
+      "resources": [
+        {"title": "TypeScript Official Handbook", "url": "https://www.typescriptlang.org/docs/handbook/intro.html", "type": "docs"},
+        {"title": "TypeScript for the New Programmer", "url": "https://www.typescriptlang.org/docs/handbook/typescript-from-scratch.html", "type": "tutorial"}
+      ]
     }
   ]
 }

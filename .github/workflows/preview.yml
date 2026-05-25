@@ -1,0 +1,47 @@
+name: Cloudflare Preview
+
+on:
+  pull_request:
+    branches: [dev, main]
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx opennextjs-cloudflare build
+
+      - name: Upload preview version
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.87.0"
+          command: versions upload --message "PR #${{ github.event.pull_request.number }} - ${{ github.event.pull_request.head.sha }}"
+
+      - name: Comment preview URL on PR
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            Preview deployed for `${{ github.event.pull_request.head.ref }}`
+
+            Live: ${{ steps.deploy.outputs.deployment-url }}
+
+            Commit: `${{ github.event.pull_request.head.sha }}`
+          comment-tag: cf-preview
