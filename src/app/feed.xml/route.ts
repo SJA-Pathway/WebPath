@@ -75,8 +75,35 @@ export async function GET() {
     .map((path) => getLatestTopic(path, path.slug))
     .filter(Boolean) as FeedItem[];
 
+
+  // Since this is a bit messy I'll explain, I need to show 5 items in the feed, but I wanted to show at least 1 latest topic from each path,
+  // so I pick the latest topic from each path first, then I fill the remaining slots with the next highest order topics across all paths, 
+  // while preventing duplicates from the first step. This way we get a mix of the latest topics.
+
+  const allTopics = paths.flatMap((path) =>
+    path.topics.map((topic) => ({
+      title: topic.title,
+      description: topic.description,
+      slug: topic.slug,
+      pathSlug: path.slug,
+      order: topic.order,
+    }))
+  );
+
+  // Prevent duplicates (already used in latestTopics)
+  const usedSlugs = new Set(latestTopics.map((t) => t.slug));
+
+  // Pick top 2 highest order remaining topics
+  const additionalTopics = allTopics
+    .filter((t) => !usedSlugs.has(t.slug))
+    .sort((a, b) => b.order - a.order)
+    .slice(0, 2);
+
+  // Merge feed
+  const finalTopics = [...latestTopics, ...additionalTopics];
+
   // Convert to RSS items
-  const items = latestTopics
+  const items = finalTopics
     .map((t) => {
       return `
         <item>
@@ -89,14 +116,14 @@ export async function GET() {
 
   // Build final RSS feed
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-        <rss version="2.0">
-        <channel>
-            <title>Learning Paths Feed</title>
-            <link>${BASE_URL}/</link>
-            <description>Latest topic from each learning path</description>
-            ${items}
-        </channel>
-        </rss>`;
+      <rss version="2.0">
+      <channel>
+          <title>Learning Paths Feed</title>
+          <link>${BASE_URL}/</link>
+          <description>Latest topic from each learning path</description>
+          ${items}
+      </channel>
+      </rss>`;
 
   // Cache the generated XML
     cachedXml = xml;
@@ -108,4 +135,4 @@ export async function GET() {
       "Cache-Control": "public, max-age=300, stale-while-revalidate=600",
     },
   });
-}
+} 
