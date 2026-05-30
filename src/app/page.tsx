@@ -5,13 +5,19 @@ import { motion, Variants, MotionProps } from "framer-motion";
 import { paths } from "@/data";
 import PathCard from "@/components/PathCard";
 import { Code2, Terminal, Cpu, Rocket, Sparkles } from "lucide-react"; // الأيقونات الجديدة
+import { useRSSFeed } from "@/data/xmlParser";
 
 export default function Home() {
+  const { data, loading } = useRSSFeed();
+  const updates = Array.isArray(data) ? data : [];
+  const topUpdates = updates.slice(0, 3);
+  const bottomUpdates = updates.slice(3, 5);
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.3 },
     },
   };
 
@@ -167,6 +173,108 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      <section className="relative py-24 bg-gradient-to-b from-[#333e58] to-[#294277] rounded-t-4xl overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-gradient-to-br from-[#8B5CF6] to-[#6366F1] rounded-full blur-[150px] opacity-5"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-[#06B6D4] to-[#0EA5E9] rounded-full blur-[150px] opacity-5"></div>
+        </div>
+        
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 relative inline-block">
+            Recent Updates
+            <motion.span
+              initial={{ width: 0 }}
+              whileInView={{ width: "90%" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="absolute -bottom-4 left-1/2 -translate-x-1/2 h-2 bg-gradient-to-r from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] rounded-full"
+            ></motion.span>
+          </h2>
+
+          <p className="text-[#cbd5e1] text-xl leading-relaxed font-medium max-w-2xl mx-auto mt-8">
+            Stay up to date with the latest additions and updates to our learning
+            paths. We regularly add new topics and resources to keep your learning journey fresh and relevant.
+          </p>
+
+          <div className="mt-15 space-y-10">
+            <motion.div
+              key={topUpdates.length}
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20 justify-items-center"
+            >
+              {loading ? (
+                <p className="text-slate-400 col-span-full text-center">Loading feed...</p>
+              ) : topUpdates.length > 0 ? (
+                topUpdates.map((item, index) => (
+                  <motion.div
+                    key={item.link}
+                    variants={cardVariants}
+                    className="group relative w-full max-w-md"
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative z-10 block transition-all duration-500 ease-out p-1 rounded-[2.5rem] bg-transparent group-hover:bg-gradient-to-br group-hover:from-cyan-500/10 group-hover:to-purple-500/10 h-full"
+                    >
+                      <div className="p-6 rounded-2xl bg-gradient-to-br from-white/8 to-white/5 border border-white/15 group-hover:from-white/15 group-hover:to-white/10 group-hover:border-white/25 transition-all duration-500 h-full flex flex-col backdrop-blur-sm">
+                        <span className="absolute -top-8 -left-2 md:-top-20 md:-left-15 text-5xl md:text-9xl font-black text-slate-50 group-hover:text-cyan-400 transition-colors duration-500 pointer-events-none z-0">
+                          0{index + 1}
+                        </span>
+                        <h3 className="text-lg font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent mb-2">{item.title}</h3>
+                        <p className="text-sm text-slate-300 flex-grow">{item.description}</p>
+                        <div className="mt-4 h-1.5 w-0 bg-gradient-to-r from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] transition-all duration-700 group-hover:w-full rounded-full"></div>
+                      </div>
+                    </a>
+                  </motion.div>
+                ))
+              ) : (
+                <p className="text-slate-400 col-span-full text-center">No recent updates available</p>
+              )}
+            </motion.div>
+
+            {bottomUpdates.length > 0 && (
+              <motion.div
+                key={bottomUpdates.length}
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-20 justify-items-center w-full md:w-fit md:mx-auto"
+              >
+                {bottomUpdates.map((item, index) => (
+                  <motion.div
+                    key={item.link}
+                    variants={cardVariants}
+                    className="group relative w-full max-w-md mt-5 m-3"
+                  >
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative z-10 block transition-all duration-500 ease-out p-1 rounded-[2.5rem] bg-transparent group-hover:bg-gradient-to-br group-hover:from-cyan-500/10 group-hover:to-purple-500/10 h-full"
+                    >
+                      <div className="p-6 rounded-2xl bg-gradient-to-br from-white/8 to-white/5 border border-white/15 group-hover:from-white/15 group-hover:to-white/10 group-hover:border-white/25 transition-all duration-500 h-full flex flex-col backdrop-blur-sm">
+                        <span className="absolute -top-8 -left-2 md:-top-20 md:-left-15 text-5xl md:text-9xl font-black text-slate-50 group-hover:text-cyan-400 transition-colors duration-500 pointer-events-none z-0">
+                          0{index + 4}
+                        </span>
+                        <h3 className="text-lg font-bold bg-gradient-to-r from-white to-slate-200 bg-clip-text text-transparent mb-2">{item.title}</h3>
+                        <p className="text-sm text-slate-300 flex-grow">{item.description}</p>
+                        <div className="mt-4 h-1.5 w-0 bg-gradient-to-r from-[#06B6D4] via-[#8B5CF6] to-[#EC4899] transition-all duration-700 group-hover:w-full rounded-full"></div>
+                      </div>
+                    </a>
+                  </motion.div>
+                ))}
+              </motion.div>
+            )}
+          </div>
+        </div>
+      </section>
+      
     </main>
   );
 }

@@ -76,7 +76,7 @@ export async function GET() {
     .filter(Boolean) as FeedItem[];
 
 
-  // Since this is a bit messy I'll explain, I need to show 5 items in the feed, but I wanted to show at least 1 latest topic from each path,
+  // Explanation to other devs, I need to show 5 items in the feed, but I wanted to show at least 1 latest topic from each path,
   // so I pick the latest topic from each path first, then I fill the remaining slots with the next highest order topics across all paths, 
   // while preventing duplicates from the first step. This way we get a mix of the latest topics.
 
