@@ -19,6 +19,7 @@
     "@opennextjs/cloudflare": "^1.18.1",
     "axios": "^1.13.2",
     "dotenv": "^17.2.3",
+    "fast-xml-parser": "^5.8.0",
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "mongoose": "^8.19.3",
