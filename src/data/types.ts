@@ -11,6 +11,7 @@ export interface Topic {
   level: "beginner" | "intermediate" | "advanced";
   order: number;
   content: string;
+  videoId?: string;
   resources: Resource[];
 }
 

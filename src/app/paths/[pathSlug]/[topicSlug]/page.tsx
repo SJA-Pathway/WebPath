@@ -61,6 +61,14 @@ export default function TopicPage({ params }: { params: any }) {
   const elements = parseContent(topic.content);
 
   return (
+    <div className="topic-detail">
+      <div className="page-header">
+        <div className="breadcrumb">
+          <Link href="/paths">Paths</Link>
+          <span>/</span>
+          <Link href={`/paths/${path.slug}`}>{path.title}</Link>
+          <span>/</span>
+          <span>{topic.title}</span>
     <main className="min-h-screen bg-white pb-20">
       <div className="bg-[#0F172A] pt-32 pb-20 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full opacity-10">
@@ -93,7 +101,20 @@ export default function TopicPage({ params }: { params: any }) {
           </motion.div>
         </div>
       </div>
+      
+      {topic.videoId && (
+  <div className="video-wrapper">
+    <iframe
+      src={`https://www.youtube.com/embed/${topic.videoId}`}
+      title={topic.title}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    />
+  </div>
+)}
 
+      <div className="topic-content">
+        <ReactMarkdown>{topic.content}</ReactMarkdown>
       <div className="container mx-auto px-6 -mt-10 relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
@@ -171,6 +192,6 @@ export default function TopicPage({ params }: { params: any }) {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
