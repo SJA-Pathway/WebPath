@@ -5,6 +5,32 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Footer() {
   return (
+
+    <footer className="footer">
+      <div className="footer-inner">
+        <div className="footer-brand">
+          <Image
+            src="/sjapathwaylogo.png"
+            alt="SJA Pathway"
+            width={36}
+            height={36}
+            quality={100}
+            unoptimized
+            style={{borderRadius: 6, backgroundColor: "white", padding: "2px",}}
+          />
+          <span>WebPath</span>
+          <p className="footer-tagline">
+            An open-source interactive roadmap for web developers.
+          </p>
+        </div>
+        <div className="footer-links">
+          <div className="footer-col">
+            <h4>Explore</h4>
+            <Link href="/paths">All Paths</Link>
+            <Link href="/paths/frontend">Frontend</Link>
+            <Link href="/paths/backend">Backend</Link>
+            <Link href="/paths/fullstack">Full Stack</Link>
+
     <footer className="relative bg-[#0F172A] border-t border-white/5 pt-20 pb-10">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-[30%] -right-[10%] w-[500px] h-[500px] bg-purple-500/10 blur-[120px] rounded-full" />
@@ -21,6 +47,7 @@ export default function Footer() {
                   fill
                   className="object-cover"
                   unoptimized
+                   style={{borderRadius: 6, backgroundColor: "white", padding: "2px",}}
                 />
               </div>
               <span className="text-2xl font-black tracking-tighter text-white">
@@ -42,6 +69,7 @@ export default function Footer() {
                 <Globe size={20} />
               </div>
             </div>
+
           </div>
 
           <div className="space-y-6">

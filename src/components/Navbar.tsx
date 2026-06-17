@@ -1,6 +1,9 @@
 "use client";
 
+
+
 import { useState, useEffect } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -25,6 +28,36 @@ export default function Navbar() {
   ];
 
   return (
+
+    <nav className="navbar">
+      <div className="navbar-inner">
+
+        <Link href="/" className="navbar-brand">
+          <Image
+            src="/sjapathwaylogo.png"
+            alt="SJA Pathway"
+            width={40}
+            height={40}
+            quality={100}
+            unoptimized
+            style={{
+              borderRadius: 6,
+              backgroundColor: "white",
+              padding: "2px",
+            }}
+          />
+
+          <span className="brand-text">WebPath</span>
+        </Link>
+
+        <div className="navbar-links">
+
+          <Link href="/paths">Paths</Link>
+
+          <Link href="/contribute">Contribute</Link>
+
+          <a
+
     <nav
       className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
         scrolled || pathname !== "/"
@@ -66,6 +99,7 @@ export default function Navbar() {
           ))}
 
                     <motion.a
+
             href="https://github.com/sja-thedude/WebPath"
             target="_blank"
             rel="noopener noreferrer"
@@ -82,9 +116,30 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
             className="flex items-center gap-2 px-6 py-2.5 rounded-3xl font-bold bg-white text-[#0F172A] transition-colors hover:bg-slate-50"
           >
+
+            GitHub
+          </a>
+
+          <button
+            className="flex items-center gap-2 px-4 py-2 rounded-3xl font-bold bg-white text-[#0F172A]"
+            onClick={() => {
+              document.documentElement.classList.toggle("dark");
+
+              localStorage.theme =
+                document.documentElement.classList.contains("dark")
+                  ? "dark"
+                  : "light";
+            }}
+            aria-label="Toggle Dark Mode"
+          >
+            🌙
+          </button>
+
+
             <FaGithub size={20} />
             <span>GitHub</span>
           </motion.a>
+
         </div>
 
         <button

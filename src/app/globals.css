@@ -9,10 +9,28 @@
   --color-brand-600: #7B5235;
   --color-brand-700: #5C3D23;
 
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --surface: #1e293b;
+  --surface-hover: #334155;
+  --border: #334155;
+  --muted: #94a3b8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
   --color-ink: #3D2918;
   --color-ink-secondary: #5C3D23;
   --color-ink-tertiary: #7B5235;
   --color-ink-inverse: #ffffff;
+
 
   --color-surface: #ffffff;
   --color-surface-secondary: #f8fafc;
@@ -32,7 +50,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--surface);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
