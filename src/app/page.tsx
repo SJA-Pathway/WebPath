@@ -136,7 +136,7 @@ export default function Home() {
                 whileInView={{ width: "80%" }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="absolute -bottom-4 left-1/2 -translate-x-1/2 h-2 bg-[#8B5CF6] rounded-full"
+                className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-[1px] w-[80%] bg-[#8B5CF6]"
               ></motion.span>
             </h2>
 
